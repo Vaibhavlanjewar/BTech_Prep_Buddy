@@ -9,14 +9,16 @@ import "./styles/App.css";
 function App() {
   const [selectedTopic, setSelectedTopic] = useState("");
   const [aiResponse, setAIResponse] = useState("");
-  const [progress, setProgress] = useState(50); // Dynamic progress state
+  const [progress, setProgress] = useState(10); // Dynamic progress state
 
   const handleTopicClick = async (topic) => {
     const prompt = `Explain ${topic} with theory, examples, important interview questions, and code if required.`;
     setSelectedTopic(prompt);
 
     try {
-      const response = await axios.post("http://localhost:5000/api/ask-ai", { prompt });
+      const response = await axios.post("http://localhost:5000/api/ask-ai", {
+        prompt,
+      });
       setAIResponse(response.data.response);
       setProgress((prevProgress) => (prevProgress + 10) % 100); // Update progress dynamically
     } catch (error) {
@@ -31,7 +33,10 @@ function App() {
       <div className="content">
         <Sidebar onTopicClick={handleTopicClick} />
         <div className="main-content">
-          <ResponseSection selectedTopic={selectedTopic} aiResponse={aiResponse} />
+          <ResponseSection
+            selectedTopic={selectedTopic}
+            aiResponse={aiResponse}
+          />
           <ProgressTracker progress={progress} /> {/* Add ProgressTracker */}
         </div>
       </div>

@@ -132,3 +132,36 @@ nav {
     margin-bottom: 20px;
   }
 }
+
+.subject-sidebar {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.sub-topics {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid black;
+}
+
+/* Hover effect for subject and subtopic items */
+.subject-sidebar,
+.sub-topics,
+.sidebar li {
+  cursor: pointer;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid black;
+  border-radius: 4px;
+  color: #007bff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.subject-sidebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
