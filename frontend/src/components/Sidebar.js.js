@@ -1,32 +1,53 @@
 import React, { useState } from "react";
+import { FaChevronDown, FaChevronRight } from "react-icons/fa"; // icon library
 import subjectsData from "../data/subjects.json";
 
 const Sidebar = ({ onTopicClick }) => {
-  const [selectedSubject, setSelectedSubject] = useState(null);
+  const [openSubjectIndex, setOpenSubjectIndex] = useState(null);
+
+  const toggleSubject = (index) => {
+    setOpenSubjectIndex(openSubjectIndex === index ? null : index); // close if already open
+  };
 
   return (
     <div className="sidebar">
-      <h2>Subjects</h2>
+      <div className="heading-sidebar">
+        <h2>Subjects</h2>
+      </div>
       <ul>
-        {subjectsData.subjects.map((subject, index) => (
-          <li key={index} onClick={() => setSelectedSubject(subject)}>
-            {subject.name}
-          </li>
-        ))}
+        {subjectsData.subjects.map((subject, index) => {
+          const isOpen = openSubjectIndex === index;
+          return (
+            <li key={index}>
+              <div
+                // className="subject-sidebar"
+                onClick={() => toggleSubject(index)}
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <span>{subject.name}</span>
+                {isOpen ? <FaChevronDown /> : <FaChevronRight />}
+              </div>
+              {isOpen && (
+                <ul className="subtopics">
+                  {subject.topics.map((topic, idx) => (
+                    <li
+                      className="sub-topics"
+                      key={idx}
+                      onClick={() => onTopicClick(topic)}
+                    >
+                      {topic}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          );
+        })}
       </ul>
-
-      {selectedSubject && (
-        <div className="subtopics">
-          <h3>{selectedSubject.name}</h3>
-          <ul>
-            {selectedSubject.topics.map((topic, idx) => (
-              <li key={idx} onClick={() => onTopicClick(topic)}>
-                {topic}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
     </div>
   );
 };
