@@ -1,0 +1,30 @@
+/* src/styles/Footer.css */
+
+.footer {
+  background-color: #031122;
+  color: #f1f1f1;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  border-top: 1px solid #2c3e50;
+}
+
+/* Social icons container */
+.social-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Social icon styling */
+.social-icon {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
