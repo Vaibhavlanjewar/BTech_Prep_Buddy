@@ -51,7 +51,7 @@ function App() {
 
     5. ✅ **25+ Common Interview Questions and Answers**
        - List 25+ technical interview questions.
-       - Explain detailed answers with code and reasoning.
+       - must Explain detailed answers with code and reasoning.
 
     6. ✅ **Bonus (Optional)**
        - Include simple visuals, ASCII diagrams, pseudocode or flowcharts if helpful.
@@ -65,7 +65,7 @@ function App() {
     - Self-paced AI learning`;
 
     try {
-      const response = await axios.post("http://localhost:5000/api/ask-ai", { prompt });
+      const response = await axios.post("process.env.REACT_APP_API_URL", { prompt });
       setAIResponse(response.data.response);
       // setProgress((prevProgress) => (prevProgress + 10) % 100);
     } catch (error) {
