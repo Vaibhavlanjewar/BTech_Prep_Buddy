@@ -144,31 +144,63 @@ const ResponseSection = ({ selectedTopic, aiResponse }) => {
     });
   };
 
+  // const downloadPDF = () => {
+  //   if (!responseRef.current) return;
+  //   html2canvas(responseRef.current, { scale: 2 }).then((canvas) => {
+  //     const imgData = canvas.toDataURL("image/png");
+  //     const pdf = new jsPDF("p", "mm", "a4");
+  //     const pdfWidth = pdf.internal.pageSize.getWidth();
+  //     const pdfHeight = pdf.internal.pageSize.getHeight();
+  //     const imgWidth = pdfWidth;
+  //     const imgHeight = (canvas.height * pdfWidth) / canvas.width;
+  //     let heightLeft = imgHeight;
+  //     let position = 0;
+
+  //     pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+  //     heightLeft -= pdfHeight;
+
+  //     while (heightLeft > 0) {
+  //       position = heightLeft - imgHeight;
+  //       pdf.addPage();
+  //       pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+  //       heightLeft -= pdfHeight;
+  //     }
+
+  //     pdf.save(`${selectedTopic || "notes"}.pdf`);
+  //   });
+  // };
   const downloadPDF = () => {
     if (!responseRef.current) return;
     html2canvas(responseRef.current, { scale: 2 }).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF("p", "mm", "a4");
+  
+      // Add header to the PDF
+      pdf.setFont("helvetica", "normal");
+      pdf.setFontSize(10);
+      pdf.text("CSGPT by VNBL", 10, 10); // This will add the text in the top-left corner
+  
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = pdf.internal.pageSize.getHeight();
       const imgWidth = pdfWidth;
       const imgHeight = (canvas.height * pdfWidth) / canvas.width;
       let heightLeft = imgHeight;
-      let position = 0;
-
+      let position = 20; // Start position after the header
+  
       pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
       heightLeft -= pdfHeight;
-
+  
       while (heightLeft > 0) {
         position = heightLeft - imgHeight;
         pdf.addPage();
         pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
         heightLeft -= pdfHeight;
       }
-
-      pdf.save(`${selectedTopic || "notes"}.pdf`);
+  
+      pdf.save(`${selectedTopic || "_CsGptnotes"}.pdf`);
     });
   };
+  
 
   return (
     <div className="response-section">

@@ -34,7 +34,7 @@ const AuthForm = ({ onLogin }) => {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h2 className="auth-title">{isLogin ? "Welcome Back" : "Create Account"}</h2>
+        <h2 className="auth-title">{isLogin ? "Welcome to CsGpt" : "Create Account"}</h2>
         <form onSubmit={handleEmailPasswordAuth} className="auth-form">
           <input
             type="email"

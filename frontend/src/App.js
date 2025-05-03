@@ -19,7 +19,7 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState("");
   const [aiResponse, setAIResponse] = useState("");
-  const [progress, setProgress] = useState(10);
+  // const [progress, setProgress] = useState(10);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -67,7 +67,7 @@ function App() {
     try {
       const response = await axios.post("http://localhost:5000/api/ask-ai", { prompt });
       setAIResponse(response.data.response);
-      setProgress((prevProgress) => (prevProgress + 10) % 100);
+      // setProgress((prevProgress) => (prevProgress + 10) % 100);
     } catch (error) {
       console.error("Error fetching AI response:", error);
       setAIResponse("Failed to fetch AI response.");
