@@ -1,5 +1,5 @@
 import React from "react";
-import "./ProgressTracker.css"; // Import the CSS file
+// import "./ProgressTracker.css"; // Import the CSS file
 
 const ProgressTracker = ({ progress }) => {
   return (
