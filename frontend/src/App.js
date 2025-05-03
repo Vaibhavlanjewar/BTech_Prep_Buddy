@@ -65,7 +65,8 @@ function App() {
     - Self-paced AI learning`;
 
     try {
-      const response = await axios.post("process.env.REACT_APP_API_URL", { prompt });
+      const response = await axios.post(process.env.REACT_APP_API_URL, { prompt });
+
       setAIResponse(response.data.response);
       // setProgress((prevProgress) => (prevProgress + 10) % 100);
     } catch (error) {
