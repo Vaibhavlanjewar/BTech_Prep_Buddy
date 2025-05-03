@@ -1,7 +1,7 @@
 /* src/styles/Footer.css */
 
 .footer {
-  background: linear-gradient(135deg, #010d1d, #06203a);
+  background: linear-gradient(135deg, #010d1d, #06203a); /* More modern and visually appealing */
   color: #f1f1f1;
   padding: 1rem 2rem;
   text-align: center;
