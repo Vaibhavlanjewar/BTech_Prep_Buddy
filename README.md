@@ -9,4 +9,7 @@ and, Most catchy thing is there Side bar Which has list of Subjects and their im
 `
 
 ![image](https://github.com/user-attachments/assets/26a4e934-ab15-4f7f-b9bb-8caea1267745)
-![Uploading image.png…]()
+
+>>updated ui 
+![image](https://github.com/user-attachments/assets/7913b1d6-b6ec-452e-b10e-9fd80d0b478a)
+
