@@ -178,7 +178,7 @@ const ResponseSection = ({ selectedTopic, aiResponse }) => {
       // Add header to the PDF
       pdf.setFont("helvetica", "normal");
       pdf.setFontSize(10);
-      pdf.text("CSGPT by VNBL", 10, 10); // This will add the text in the top-left corner
+      pdf.text("CsGpt", 8, 8); // This will add the text in the top-left corner
   
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = pdf.internal.pageSize.getHeight();
